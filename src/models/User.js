@@ -5,9 +5,15 @@
 const mongoose = require("mongoose");
 const userModel = mongoose.Schema({
 // const acc = mongoose.Schema({
+	firstname:{
+		type:String,
+	},
+	lastname:{
+		type:String,
+	},
 	username: {
 		type: String,
-		required: true,
+		
 	  },
 	  email: {
 		type: String,
@@ -15,27 +21,24 @@ const userModel = mongoose.Schema({
 	  },
 	  phone: {
 		type: String,
-		required: true,
+		
 		unique: true,
 	  },
 	  gender: {
 		type: String,
-		required: true,
+		
 	  },
 	  age: {
 		type: String,
-		required: true,
 	  },
 	  chiefcomplaint: {
 		type: String,
-		required: true,
 	  },
 	  bloodgroup: {
 		type: String,
 	  },
 	  timeofregistration: {
 		type: String,
-		required: true,
 	  },
 	  sugarlevel: {
 		type: String,
@@ -49,18 +52,19 @@ const userModel = mongoose.Schema({
 	  
 	  address: {
 		type: String,
-		required: true,
 	  },
 
 	  doctor: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Doctor",
-		required: true,
-		
 	  },
 	  doctorName:{
 		type:String,
 	  },
+	  password:{
+		type:String,
+		
+	},
 
 	  patientId: {
 		type: mongoose.Schema.Types.ObjectId,

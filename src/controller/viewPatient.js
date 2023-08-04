@@ -22,8 +22,12 @@ router.get("/",authenticate, async (req, res) => {
         phone: item.phone,
         age:item.age,
         chiefcomplaint:item. chiefcomplaint,
+        bloodgroup: item.bloodgroup,
+        sugarlevel: item.sugarlevel,
+        bloodpressure: item.bloodpressure,
         timeofregistration: item.timeofregistration,
         address:item.address,
+        message:item.message,
         doctorId: item.doctor ? item.doctor._id : null,
         doctorName:item.doctorName,
         
