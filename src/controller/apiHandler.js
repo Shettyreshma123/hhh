@@ -54,6 +54,11 @@ const interns_update=require("./updateInterns");
 const interns_delete=require("./deleteInterns");
 const sign_up=require('./signUp');
 const logg_user=require("./LoginUser");
+const profile_patient=require("./profilePatient");
+const patient_form=require("./patientForm");
+const view_patform=require("./viewPatForm");
+const update_patform=require("./updatePatForm");
+const report=require("./report");
 
 
 router.use("/login", login);
@@ -93,6 +98,10 @@ router.use("/interns_update",interns_update);
 router.use("/interns_delete",interns_delete);
 router.use("/sign_up",sign_up)
 router.use("/logg_user",logg_user);
-
+router.use("/profile_patient",profile_patient);
+router.use("/patient_form",patient_form);
+router.use("/view_patform",view_patform);
+router.use("/update_patform",update_patform);
+router.use("/report",report);
 
 module.exports = router;
