@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const reportSchema = new mongoose.Schema({
+  hospitalname:{
+    type: String,
+  },
   title: {
     type: String,
     required: true,

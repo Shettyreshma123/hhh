@@ -59,6 +59,8 @@ const patient_form=require("./patientForm");
 const view_patform=require("./viewPatForm");
 const update_patform=require("./updatePatForm");
 const report=require("./report");
+const patient_lab=require("./patientLabatory");
+const patient_lablist=require("./patientLabList");
 
 
 router.use("/login", login);
@@ -103,5 +105,7 @@ router.use("/patient_form",patient_form);
 router.use("/view_patform",view_patform);
 router.use("/update_patform",update_patform);
 router.use("/report",report);
+router.use("/patient_lab",patient_lab);
+router.use("/patient_lablist",patient_lablist);
 
 module.exports = router;

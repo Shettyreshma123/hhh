@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-const Patient = require("../models/Patient");
+const userModel = require("../models/User");
 
 // Route for patient registration
 router.post("/", async (req, res) => {
@@ -19,6 +19,7 @@ router.post("/", async (req, res) => {
       date,
       time,
       address,
+      message,
     } = req.body;
 
     // Check if the patient already exists based on the email
@@ -32,7 +33,7 @@ router.post("/", async (req, res) => {
     // Create a new patient record
 
     
-    const patient = new Patient({
+    const patient = new userModel({
       username,
       email,
       gender,
@@ -44,6 +45,7 @@ router.post("/", async (req, res) => {
       date,
       time,
       address,
+      message,
     });
 
     // Save the patient record to the database

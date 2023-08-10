@@ -5,12 +5,7 @@
 const mongoose = require("mongoose");
 const userModel = mongoose.Schema({
 // const acc = mongoose.Schema({
-	firstname:{
-		type:String,
-	},
-	lastname:{
-		type:String,
-	},
+	
 	username: {
 		type: String,
 		
@@ -21,7 +16,6 @@ const userModel = mongoose.Schema({
 	  },
 	  phone: {
 		type: String,
-		
 		unique: true,
 	  },
 	  gender: {
@@ -40,6 +34,12 @@ const userModel = mongoose.Schema({
 	  timeofregistration: {
 		type: String,
 	  },
+	  date:{
+		type:String,
+	},
+	time:{
+		type:String,
+	},
 	  sugarlevel: {
 		type: String,
 	  },

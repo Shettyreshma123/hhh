@@ -3,33 +3,25 @@ const { default: mongoose } = require("mongoose");
 const { Router } = require("express");
 
 const Patients = mongoose.Schema({
-	
-	username: {
+	firstname:{
 		type:String,
-		
 	},
+	lastname:{
+		type:String,
+	},
+	
 	email:{
+		type:String,
+		unique:true,
+	},
+	phone:{
 		type:String,
 		unique:true,
 	},
 	gender:{
 		type:String,
 	},
-	age:{
-		type:String,
-	},
-
-	phone:{
-		type:String,
-		unique:true,
-	},
 	
-	dateofbirth:{
-		type:String,
-	},
-	chiefcomplaint: {
-		type:String,
-	},
 	bloodgroup:{
 		type:String,
 	},
@@ -51,17 +43,9 @@ const Patients = mongoose.Schema({
 	  bloodpressure: {
 		type: String,
 	  },
-	  message: {
-		type: String,
-	  },
 	  
-	  doctor: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: "Doctor",
-	  },
-	  doctorName:{
-		type:String,
-	  },
+	  
+	 
 	  password:{
 		type:String,
 		

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const patientModel = require("../models/Patient");
+const userModel = require("../models/User");
 const docModel = require("../models/login");
 const authenticate = require("../middleware/authentication");
 // const {upload}=require("../middleware/uploads");
@@ -28,7 +28,7 @@ const authenticate = require("../middleware/authentication");
 		status,
 	  } = req.body;
   
-	  const patient = await patientModel.findById(id);
+	  const patient = await userModel.findById(id);
 	  if (!patient) {
 		return res.status(404).send("Patient not found");
 	  }
@@ -67,8 +67,8 @@ const authenticate = require("../middleware/authentication");
 		status:status,
 	  };
   
-	  await patientModel.findByIdAndUpdate(id, updatedData);
-	  const data = await patientModel.findById(id);
+	  await userModel.findByIdAndUpdate(id, updatedData);
+	  const data = await userModel.findById(id);
   
 	  // ... create responseData as needed
   
