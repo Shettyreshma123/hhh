@@ -157,7 +157,7 @@ const express = require('express');
 const router = express.Router();
 const PDFDocument = require('pdfkit');
 const path = require('path'); 
-const userModel = require('../models/User'); // Assuming you have a model for the patients in MongoDB
+const userModel = require('../models/Patient'); // Assuming you have a model for the patients in MongoDB
 
 // Endpoint to search for patients by name and get their reports
 router.get('/:username', async (req, res) => {

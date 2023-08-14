@@ -3,28 +3,54 @@ const { default: mongoose } = require("mongoose");
 const { Router } = require("express");
 
 const Patients = mongoose.Schema({
+	firstLoginDate: {
+		type: Date,
+		default: null,
+	  },
 	firstname:{
 		type:String,
 	},
 	lastname:{
 		type:String,
 	},
-	
+	username: {
+		type: String,
+		
+	  },
 	email:{
 		type:String,
-		unique:true,
+		// unique:true,
 	},
-	phone:{
-		type:String,
-		unique:true,
-	},
+	
 	gender:{
 		type:String,
 	},
-	
+	age: {
+		type: String,
+	  },
+	phone:{
+		type:String,
+		// unique:true,
+	},
+	dateofbirth:{
+		type:String,
+	},
+	chiefcomplaint: {
+		type: String,
+	  },
 	bloodgroup:{
 		type:String,
 	},
+	sugarlevel: {
+		type: String,
+	  },
+	bloodpressure: {
+		type: String,
+	  },
+	  timeofregistration: {
+		type: String,
+	  },
+	  
 	date:{
 		type:String,
 	},
@@ -34,16 +60,17 @@ const Patients = mongoose.Schema({
 	address: {
 		type:String,
 	},
-	timeofregistration: {
+	
+	message: {
 		type: String,
 	  },
-	  sugarlevel: {
-		type: String,
+	  doctor: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "Doctor",
 	  },
-	  bloodpressure: {
-		type: String,
+	  doctorName:{
+		type:String,
 	  },
-	  
 	  
 	 
 	  password:{
@@ -60,4 +87,4 @@ const Patients = mongoose.Schema({
 	},
 	
 });
-	module.exports=mongoose.model("patients", Patients);
+	module.exports=mongoose.model("patient", Patients);

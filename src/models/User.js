@@ -5,6 +5,12 @@
 const mongoose = require("mongoose");
 const userModel = mongoose.Schema({
 // const acc = mongoose.Schema({
+	firstname:{
+		type:String,
+	},
+	lastname:{
+		type:String,
+	},
 	
 	username: {
 		type: String,
@@ -16,7 +22,7 @@ const userModel = mongoose.Schema({
 	  },
 	  phone: {
 		type: String,
-		unique: true,
+		
 	  },
 	  gender: {
 		type: String,
@@ -69,6 +75,14 @@ const userModel = mongoose.Schema({
 	  patientId: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Patient",
+	  },
+	  status:{
+		type:String,
+	},
+
+	  loginDate: {
+		type: Date,
+		default: null,
 	  },
 	});
 	// module.exports=mongoose.model("acc", acc);

@@ -37,8 +37,6 @@ router.post("/", authenticate,  async (req, res) => {
     }
    
     
-
-    
     const data = await birthModel.create({
       username: username,
       birthtype:birthtype,

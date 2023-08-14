@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userModel = require("../models/User");
+const userModel = require("../models/Patient");
 const docModel = require("../models/login");
 const authenticate = require("../middleware/authentication");
 // const {upload}=require("../middleware/uploads");

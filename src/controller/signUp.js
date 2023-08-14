@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const patientModel = require("../models/Patient");
+const userModel = require("../models/User");
 const bcrypt=require("bcrypt");
 const constants=require("../config/constants");
 
@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
       return res.status(201).send("Password is required");
     }
 
-    const oldEmail = await patientModel.findOne({ email: email });
+    const oldEmail = await userModel.findOne({ email: email });
     if (oldEmail) {
       return res.status(202).send(" Email is already exist");
     }
@@ -44,7 +44,7 @@ router.post("/", async (req, res) => {
     ) {
       return res.status(203).send("email is invalid");
     }
-	const data = await patientModel.create({
+	const data = await userModel.create({
 		firstname:firstname,
 		lastname:lastname,
 		email: email,

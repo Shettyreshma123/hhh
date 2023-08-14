@@ -1,41 +1,44 @@
+
 const express = require("express");
 const router = express.Router();
-const patientModel = require("../models/User");
+const patientModel = require("../models/Patient");
 const authenticate = require("../middleware/authentication");
-// const constants=require("../config/constants");
 
 
-router.get("/",authenticate, async (req, res) => {
+router.get("/", authenticate, async (req, res) => {
   try {
-    // console.log(req.user);
-    // if (req.user.role != "Doctor") {
-    //   return res.status(225).send("Unauthorized user")
-    // }
-    const doctors = await patientModel.find({ role: "Doctor" })
-    let data = await patientModel.find();
-    data = data.map((item) => {
+    const enteredDate = req.query.date;
+
+    const currentDate = new Date();
+    const formattedCurrentDate = currentDate.toISOString().split('T')[0];
+
+    const doctors = await patientModel.find({ role: "Doctor" });
+
+    const patients = await patientModel.find({
+      date: formattedCurrentDate, // Use formatted current date here
+    });
+
+    const data = patients.map((item) => {
       return {
-        id:item.id,
+        id: item.id,
         username: item.username,
         email: item.email,
         gender: item.gender,
-        age:item.age,
-		phone: item.phone,
-		dateofbirth:item.dateofbirth,
-        chiefcomplaint:item. chiefcomplaint,
+        age: item.age,
+        phone: item.phone,
+        dateofbirth: formatDate(item.dateofbirth), // Format date of birth
+        chiefcomplaint: item.chiefcomplaint,
         bloodgroup: item.bloodgroup,
-		sugarlevel: item.sugarlevel,
+        sugarlevel: item.sugarlevel,
         bloodpressure: item.bloodpressure,
         timeofregistration: item.timeofregistration,
-        date:item.date,
-		time:item.time,
-        address:item.address,
-        message:item.message,
+        date: formatDate(item.date), // Format date
+        time: item.time,
+        address: item.address,
+        message: item.message,
         doctorId: item.doctor ? item.doctor._id : null,
-        doctorName:item.doctorName,
-        message:item.message,
-		status:item.status,
-        
+        doctorName: item.doctorName,
+        status: item.status,
       };
     });
 
@@ -45,6 +48,12 @@ router.get("/",authenticate, async (req, res) => {
   }
 });
 
+function formatDate(inputDate) {
+  const date = new Date(inputDate);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+}
+
 module.exports = router;
-
-
