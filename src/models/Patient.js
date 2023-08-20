@@ -3,10 +3,10 @@ const { default: mongoose } = require("mongoose");
 const { Router } = require("express");
 
 const Patients = mongoose.Schema({
-	firstLoginDate: {
-		type: Date,
-		default: null,
-	  },
+	// firstLoginDate: {
+	// 	type: Date,
+	// 	default: null,
+	//   },
 	firstname:{
 		type:String,
 	},
@@ -85,6 +85,129 @@ const Patients = mongoose.Schema({
 	status:{
 		type:String,
 	},
+	testtype: {
+		type: String,
+	  },
+	  collecteddate: {
+		type: String,
+	  },
+	  hemoglobin: {
+		type: String,
+	  },
+	  whiteBloodCellCount: {
+		type: String,
+	  },
+	  plateletCount: {
+		type: String,
+	  },
+	  redBloodCellCount: {
+		type: String,
+	  },
+	  hematocrit: {
+		type: String,
+	  },
+	  meanCorpuscularVolume: {
+		type: String,
+	  },
+	  meanCorpuscularHemoglobin: {
+		type: String,
+	  },
+	  meanCorpuscularHemoglobinConcentration: {
+		type: String,
+	  },
+	  whiteBloodCellDifferential: {
+		neutrophils: {
+		  type: String,
+		},
+		lymphocytes: {
+		  type: String,
+		},
+		monocytes: {
+		  type: String,
+		},
+		eosinophils: {
+		  type: String,
+		},
+		basophils: {
+		  type: String,
+		},
+	  },
+		color: {
+		  type: String,
+		},
+		appearance: {
+		  type: String,
+		},
+		pHLevel: {
+		  type: String,
+		},
+		specificGravity: {
+		  type: String,
+		},
+		protein: {
+		  type: String,
+		},
+		glucose: {
+		  type: String,
+		},
+		ketones: {
+		  type: String,
+		},
+		bilirubin: {
+		  type: String,
+		},
+		blood: {
+		  type: String,
+		},
+		leukocyteEsterase: {
+		  type: String,
+		},
+		nitrite: {
+		  type: String,
+		},
+		microscopicExamination: {
+		  type: String,
+		},
+		fastingBloodSugar: {
+		  type: String,
+		},
+		postPrandialBloodSugar: {
+		  type: String,
+		},
+		randomBloodSugar: {
+		  type: String,
+		},
+		hba1c: {
+		  type: String,
+		},
+		oralGlucoseToleranceTest: {
+		  type: String,
+		},
+		fructosamine: {
+		  type: String,
+		},
+		cPeptideTest: {
+		  type: String,
+		},
+		insulinLevel: {
+		  type: String,
+		},
+		urineKetones: {
+		  type: String,
+		},
+	
+		systolicPressure: {
+		  type: String,
+		},
+		diastolicPressure: {
+		  type: String,
+		},
+		meanArterialPressure: {
+		  type: String,
+		},
+		pulsePressure: {
+		  type: String,
+		},
 	
 });
 	module.exports=mongoose.model("patient", Patients);

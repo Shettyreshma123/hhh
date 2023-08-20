@@ -54,10 +54,17 @@ router.post("/", async (req, res) => {
 		password:encryptPassword,
 
 	  });
-  
+	//   const patientFormURL = `/patientform?firstname=${data.firstname}&lastname=${data.lastname}&email=${data.email}&phone=${data.phone}&gender=${data.gender}&bloodgroup=${data.bloodgroup}`;
+
 	  return res.status(200).send(data);
-  } catch (error) {
-    return res.status(500).send(error.stack);
-  }
+	//   return res.redirect(`/patientform?firstname=${firstname}&lastname=${lastname}&email=${email}&phone=${phone}&gender=${gender}&bloodgroup=${bloodgroup}`);
+	} catch (error) {
+	  return res.status(500).send(error.stack);
+	}
+// 	  return res.status(200).send(data);
+//   } catch (error) {
+//     return res.status(500).send(error.stack);
+//   }
+
 });
 module.exports=router;

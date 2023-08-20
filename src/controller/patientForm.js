@@ -19,16 +19,7 @@ router.post("/", async (req, res) => {
       address,
     } = req.body;
 
-    // Check if the patient already exists based on the email
-    // const existingPatient = await Patient.findOne({ email });
-    // if (existingPatient) {
-    //   return res
-    //     .status(400)
-    //     .json({ error: "Patient with the same email already exists" });
-    // }
-
-    // Create a new patient record
-
+    
     
     const patient = new Patient({
       username,
@@ -55,3 +46,64 @@ router.post("/", async (req, res) => {
 });
 
 module.exports = router;
+
+
+
+// const express = require("express");
+// const router = express.Router();
+// const Patient = require("../models/Patient");
+
+// router.post("/", async (req, res) => {
+//   try {
+//     const {
+//       username,
+//       email,
+//       gender,
+//       age,
+//       phone,
+//       dateofbirth,
+//       chiefcomplaint,
+//       bloodgroup,
+//       date,
+//       time,
+//       address,
+//     } = req.body;
+
+//     // Retrieve the email from the query string
+//     // const queryEmail = req.query.email
+
+//     // Validate and save patient data
+//     // ... (perform validation and data saving as needed)
+
+//     const patient = new Patient({
+//       username,
+//       email, // Use the email from the query string
+//       gender,
+//       age,
+//       phone,
+//       dateofbirth,
+//       chiefcomplaint,
+//       bloodgroup,
+//       date,
+//       time,
+//       address,
+//     });
+
+//     await patient.save();
+
+//     return res.status(201).json({
+//       message: "Patient registered successfully",
+//       patient,
+//     });
+//   } catch (error) {
+//     console.error("Error registering patient:", error);
+//     return res.status(500).send(error.stack);
+//   }
+// });
+
+// module.exports = router;
+
+
+
+
+
