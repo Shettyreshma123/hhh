@@ -31,7 +31,7 @@ router.put('/:id', authenticate, async (req, res) => {
 
     await patientModel.findByIdAndUpdate(id, updatedData);
     const data = await patientModel.findById(id);
-	console.log(data);
+	// console.log(data);
 	// console.log(updatedData);
 
    

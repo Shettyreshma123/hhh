@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userModel = require("../models/User");
+const userModel = require("../models/Patient");
 const bcrypt=require("bcrypt");
 // const constants=require("../config/constants");
 const jwt=require("jsonwebtoken");
@@ -18,7 +18,7 @@ router.post("/",async(req,res)=>{
 				process.env.SECRET_KEY,
 				// {expiresIn:"24h"}
 			);
-			return res.status(200).send({access_token:token,firstname:user.firstname,lastname:user.lastname,email:user.email,phone:user.phone,gender:user.gender,bloodgroup:user.bloodgroup});
+			return res.status(200).send({access_token:token,user_id:user._id,username:user.username,email:user.email,phone:user.phone,gender:user.gender,bloodgroup:user.bloodgroup});
 		}else{
 			return res.status(201).send("email and password not match");
 		}

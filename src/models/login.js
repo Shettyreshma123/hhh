@@ -37,7 +37,9 @@ const accounts = mongoose.Schema({
 		type:String,
 		required:true,
 	},
-	
+	specialist:{
+		type:String,
+	}
 	
 });
 	module.exports=mongoose.model("accounts", accounts);

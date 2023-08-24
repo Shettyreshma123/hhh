@@ -9,7 +9,7 @@ const authenticate = require("../middleware/authentication");
 
 router.post("/",authenticate, upload.single("image"), async (req, res) => {
   try {
-    const { username, email, phone,address, password, role } = req.body;
+    const { username, email, phone,address, password, role,specialist  } = req.body;
 
     if (req.user && req.user.role && req.user.role !== "Admin") {
       return res.send("Unauthorized user");
@@ -61,6 +61,7 @@ router.post("/",authenticate, upload.single("image"), async (req, res) => {
       image: req.file.originalname,
       password: encryptPassword,
       role: role,
+      specialist :specialist ,
     
     });
 

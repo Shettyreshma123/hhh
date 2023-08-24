@@ -1,21 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const userModel = require("../models/User");
+const userModel = require("../models/Patient");
 const bcrypt=require("bcrypt");
 const constants=require("../config/constants");
 
 
 router.post("/", async (req, res) => {
   try {
-    const { firstname,lastname,email,phone,gender,bloodgroup,password } = req.body;
+    const { username,email,phone,gender,bloodgroup,password } = req.body;
 
     const encryptPassword=await bcrypt.hash(password,constants.saltRound);
-	if (!firstname || firstname == "") {
-		return res.status(201).send("Firstname is required");
+	if (!username || username == "") {
+		return res.status(201).send("username is required");
 	  }
-	  if (!lastname || lastname == "") {
-		return res.status(201).send("Lastname is required");
-	  }
+	//   if (!lastname || lastname == "") {
+	// 	return res.status(201).send("Lastname is required");
+	//   }
     if (!email || email == "") {
       return res.status(201).send("Email is required");
     }
@@ -45,8 +45,7 @@ router.post("/", async (req, res) => {
       return res.status(203).send("email is invalid");
     }
 	const data = await userModel.create({
-		firstname:firstname,
-		lastname:lastname,
+		username:username,
 		email: email,
 		phone:phone,
 		gender:gender,

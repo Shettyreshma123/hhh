@@ -77,7 +77,9 @@ const Patients = mongoose.Schema({
 		type:String,
 		
 	},
-
+userId:{
+	type:String,
+},
 	  patientId: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Patient",
@@ -89,6 +91,12 @@ const Patients = mongoose.Schema({
 		type: String,
 	  },
 	  collecteddate: {
+		type: String,
+	  },
+	  prescribe: {
+		type: String,
+	  },
+	  description:{
 		type: String,
 	  },
 	  hemoglobin: {
@@ -207,6 +215,15 @@ const Patients = mongoose.Schema({
 		},
 		pulsePressure: {
 		  type: String,
+		},
+		cost:{
+			type:String,
+		},
+		consultationFee:{
+			type:String,
+		},
+		laboratoryFee:{
+			type:String,
 		},
 	
 });
